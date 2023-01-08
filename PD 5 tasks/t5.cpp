@@ -94,3 +94,9 @@ char getCharAtxy(short int x, short int y)
     coordBufSize.Y = 1;
     return ReadConsoleOutput(GetStdHandle(STD_OUTPUT_HANDLE), &ci, coordBufSize, xy, &rect) ? ci.Char.AsciiChar : ' ';
 }
+void gotoxy(int x,int y){
+	COORD coordinates;
+	coordinates.X=x;
+	coordinates.Y=y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coordinates);
+}
